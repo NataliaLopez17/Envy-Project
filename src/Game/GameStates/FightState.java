@@ -1,6 +1,7 @@
 package Game.GameStates;
 
 import Game.Entities.Dynamics.BaseHostileEntity;
+import Game.Entities.Dynamics.Player;
 import Main.GameSetUp;
 import Main.Handler;
 
@@ -114,6 +115,13 @@ public class FightState extends InWorldState{
 
     @Override
     public void tick() {
+    	if (Player.mana < 25) skill = false;
+ 
+   
+    	 if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_H)) {
+    		 Player.health = 200;
+    	 }
+    	
         if(turn>numOfEnemies){
             turn=0;
         }

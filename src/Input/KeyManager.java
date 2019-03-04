@@ -9,8 +9,11 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.text.Keymap;
+
 import Display.UI.UIListener;
 import Game.Entities.EntityManager;
+import Game.Entities.Dynamics.Player;
 import Game.GameStates.State;
 import Game.World.Walls;
 import Game.World.InWorldAreas.BaseArea;
@@ -29,6 +32,7 @@ public class KeyManager implements KeyListener {
 
 	private boolean[] keys,justPressed,cantPress;
 	public boolean up=false, down=false, left=false, right=false;
+	public static boolean health2 = false;
 	public boolean attbut=false;
 	public boolean fattbut=false;
 	public boolean pbutt=false;
@@ -136,6 +140,7 @@ public class KeyManager implements KeyListener {
 		}
 
 		public void tick() {
+			
 			super.tick();
 
 			this.manager.tick();
@@ -151,6 +156,7 @@ public class KeyManager implements KeyListener {
 			this.respawnEnemyTick();
 
 			this.collidedWithEnemy();
+		
 
 
 		}

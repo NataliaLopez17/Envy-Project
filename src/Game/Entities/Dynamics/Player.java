@@ -13,15 +13,19 @@ import Main.GameSetUp;
 import Main.Handler;
 import Resources.Animation;
 import Resources.Images;
-
+import Input.KeyManager;
 import java.awt.event.KeyEvent;
+
+
 import java.awt.image.BufferedImage;
 
 public class Player extends BaseDynamicEntity implements Fighter {
 
 	private Rectangle player;
+	private KeyManager keyManager;
 	private boolean canMove;
 	public static boolean checkInWorld;
+	public static boolean hp = false;
 
 	public static final int InMapWidthFrontAndBack = 15 * 3, InMapHeightFront = 27 * 3, InMapHeightBack = 23 * 3,
 							InMapWidthSideways = 13 * 3, InMapHeightSideways = 22 * 3, 
@@ -38,6 +42,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	private int animWalkingSpeed = 150;
 
 	public Player(Handler handler, int xPosition, int yPosition) {
+		
 		super(handler, yPosition, yPosition, null);
 
 		this.xPosition = xPosition;
@@ -59,6 +64,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 	@Override
 	public void tick() {
+
 		
 		if (!GameSetUp.LOADING) {
 			levelUP();
@@ -87,6 +93,8 @@ public class Player extends BaseDynamicEntity implements Fighter {
 			}
 
 		}
+		
+		
 	}
 
 
@@ -377,8 +385,21 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 	// GETTERS AND SETTERS FOR FIGHT STATS
 
-	double health = 200, mana = 100, xp = 0, lvl = 1, defense = 16, str = 10, intl = 25, mr = 12, cons = 20, acc = 12, evs = 4,
-			initiative = 13, maxHealth = 200, maxMana = 100, lvlUpExp = 200;
+	public static double health = 200;
+	public static double mana = 50;
+	double xp = 0;
+	double lvl = 1;
+	double defense = 16;
+	double str = 10;
+	double intl = 25;
+	double mr = 12;
+	double cons = 20;
+	double acc = 12;
+	double evs = 4;
+	double initiative = 13;
+	double maxHealth = 200;
+	double maxMana = 100;
+	double lvlUpExp = 200;
 
 	String Class = "none", skill = "Freeze";
 	String[] buffs = {}, debuffs = {};
