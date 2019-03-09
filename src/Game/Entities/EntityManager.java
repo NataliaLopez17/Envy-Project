@@ -49,7 +49,7 @@ public class EntityManager {
 		if ( player.getCollision().intersects(e.getCollision())&&!GameSetUp.SWITCHING) {
 			
 			if (e instanceof BaseStaticEntity){
-				player.WallBoundary(e.getXOffset());
+				player.WallBoundary(e.getXOffset(), 0);
 			}
 
 		}

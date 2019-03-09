@@ -32,6 +32,7 @@ public class Images {
 	public static BufferedImage[] Options;
 	public static ImageIcon icon;
 
+
 	public static BufferedImage map[];
 	
 	public static Image Scaledmap[];
@@ -92,6 +93,9 @@ public class Images {
 	public static Image ScaledCave;
 	public static Image ScaledArea;
 	public static BufferedImage tree;
+	
+	
+	public static BufferedImage ahri;
 
 	public Images() {
 
@@ -167,6 +171,9 @@ public class Images {
 			titleImage = ImageIO.read(getClass().getResourceAsStream("/Sheets/Main3.png"));
 			Stats = ImageIO.read(getClass().getResourceAsStream("/Sheets/Cartel Nota.png"));
 			QST = ImageIO.read(getClass().getResourceAsStream("/Sheets/QST.png")); //Things sometimes just dont fit
+			
+			
+			ahri = ImageIO.read(getClass().getResourceAsStream("/Sheets/staticEntity.png"));
 
 			Pause = ImageIO.read(getClass().getResourceAsStream("/Buttons/Pause.png"));
 			Resume[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/ResumeButton3.png"));

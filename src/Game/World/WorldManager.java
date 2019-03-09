@@ -1,6 +1,7 @@
 package Game.World;
 
 import Game.Entities.EntityManager;
+import Game.Entities.Statics.Ahri;
 import Game.Entities.Statics.SmokeHouse;
 import Game.Entities.Statics.Tree;
 import Input.MouseManager.Circle;
@@ -23,6 +24,8 @@ public class WorldManager {
 	private int yPos;
 	String alphabet1 = " abcdefghijklmnopqrstuvwxyzabcd";
 
+
+
 	ArrayList<Game.World.Walls> worldWalls;
 
 	public WorldManager(Handler handler, EntityManager entityManager) {
@@ -36,11 +39,12 @@ public class WorldManager {
 		circle = handler.getGame().getMouseManager().new Circle(5627,380, this.handler);
 		this.entityManager.AddEntity(new Tree(handler, 600, 600));
 		this.entityManager.AddEntity(new SmokeHouse(handler, 1153, 335));
+		this.entityManager.AddEntity(new Ahri(handler, 1700, 20));
 
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,500, 800,"MapState","Jovan","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,1400, 600,"MapState","Common Rat","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,2400, -200,"MapState","Common Rat","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
-		
+
 		this.entityManager.AddEntity(circle);
 
 		AddWalls();
@@ -61,12 +65,10 @@ public class WorldManager {
 	public void render(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		if(!this.handler.getEntityManager().getPlayer().getWeaken()) {
-		g2.drawImage(this.animation.getCurrentFrame(),
-		3027 + handler.getXDisplacement(), 3875 + 
-		handler.getYDisplacement(), 30, 30, null);}
-		rectangle = new Rectangle( 3027 + 
-		handler.getXDisplacement(), 3875 + 
-		handler.getYDisplacement(), 30, 30);
+			g2.drawImage(this.animation.getCurrentFrame(), 3027 + handler.getXDisplacement(), 3875 + handler.getYDisplacement(), 30, 30, null);
+		}
+
+		rectangle = new Rectangle( 3027 + handler.getXDisplacement(), 3875 + handler.getYDisplacement(), 30, 30);
 		g2.setColor(Color.ORANGE);
 		g2.setFont(new Font("AR ESSENCE", Font.PLAIN, 100));
 		g2.drawString(this.getString(), this.xPos,this.yPos);
@@ -146,10 +148,10 @@ public class WorldManager {
 
 	public void collidedWithWall() {
 		if(this.handler.getEntityManager().getPlayer().getCollision().intersects(this.rectangle)) {
-		if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
-		handler.getGame().getMusicHandler().stopEffect(0);}    	
-		handler.getGame().getMusicHandler().playEffect("res/music/SSAcquired.wav",1);
-		handler.getEntityManager().getPlayer().setWeaken(true);
+			if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
+				handler.getGame().getMusicHandler().stopEffect(0);}    	
+			handler.getGame().getMusicHandler().playEffect("res/music/SSAcquired.wav",1);
+			handler.getEntityManager().getPlayer().setWeaken(true);
 		}
 	}
 	public void moveString() {

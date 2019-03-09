@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>res/Sheets/staticEntity.png</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Desktop/Envy/staticEntity.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>
