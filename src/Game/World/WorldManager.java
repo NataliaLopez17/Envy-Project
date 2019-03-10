@@ -144,6 +144,24 @@ public class WorldManager {
 		worldWalls.add(new Walls(handler, 620, 210, 80, 160, "Wall"));
 		worldWalls.add(new Walls(handler, 840, 240, 120, 110, "Wall"));
 		worldWalls.add(new Walls(handler, 580, 300, 40, 50, "Wall"));
+		
+		//Trees
+		worldWalls.add(new Walls(handler, 590, 600, 100, 100, "Wall"));
+		
+		//house 1
+		worldWalls.add(new Walls(handler, 1080, 550, 100, 115, "Wall"));
+		//house 1 door
+		worldWalls.add(new Walls(handler, 1120, 650, 30, 20, "Door House 1"));
+		
+		//house 2
+		worldWalls.add(new Walls(handler, 1100, 450, 70, 112, "Wall"));
+		//house 3
+		worldWalls.add(new Walls(handler, 1170, 450, 120, 125, "Wall"));
+		
+		//house 4
+		worldWalls.add(new Walls(handler, 1200, 550, 80, 100, "Wall"));
+		//house 4 door
+		worldWalls.add(new Walls(handler, 1220, 620, 25, 35, "Door House 2"));
 	}
 
 	public void collidedWithWall() {

@@ -31,7 +31,7 @@ public class Ahri extends BaseStaticEntity{
 		Graphics2D g2 = (Graphics2D) g;
 		
 		g.drawImage(Images.ahri, (int)(handler.getXDisplacement() + xPosition),(int)( handler.getYDisplacement() + yPosition), width, height, null);
-		collision = new Rectangle((int)(handler.getXDisplacement() + xPosition),(int)( handler.getYDisplacement() + yPosition + 25), width, height);
+		collision = new Rectangle((int)(handler.getXDisplacement() + xPosition),(int)( handler.getYDisplacement() + yPosition + 25), width, 200);
 		
 		if (GameSetUp.DEBUGMODE) {
 			g2.draw(collision);

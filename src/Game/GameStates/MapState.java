@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 import Game.Entities.EntityManager;
+
 import Game.Entities.Dynamics.Player;
 import Game.World.WorldManager;
 
@@ -18,9 +19,12 @@ public class MapState extends State {
 	WorldManager worldManager;
 	EntityManager entityManager;
 	Player player;
+
     //changes the initial spawn of the player
 	int initialXMapDisplacement=1450;
 	int initialYMapDisplacement=500;
+	
+
 	
 	private Animation map;
 

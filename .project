@@ -16,6 +16,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>res/Sheets/dynamicEntity.png</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Desktop/Envy/dynamicEntity.png</location>
+		</link>
+		<link>
 			<name>res/Sheets/staticEntity.png</name>
 			<type>1</type>
 			<location>C:/Users/NATALIA E/Desktop/Envy/staticEntity.png</location>
