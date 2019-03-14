@@ -9,7 +9,9 @@ import Game.GameStates.InWorldState;
 import Game.GameStates.State;
 import Game.World.Walls;
 import Game.World.InWorldAreas.CaveArea;
+import Game.World.InWorldAreas.House1Interior;
 import Game.World.InWorldAreas.InWorldWalls;
+import Game.World.InWorldAreas.Village;
 import Main.GameSetUp;
 import Main.Handler;
 import Resources.Animation;
@@ -23,7 +25,6 @@ import java.awt.image.BufferedImage;
 public class Player extends BaseDynamicEntity implements Fighter {
 
 	private Rectangle player;
-	private Ahri ahri;
 	private KeyManager keyManager;
 	private boolean canMove;
 	public static boolean checkInWorld;
@@ -236,7 +237,47 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							handler.setArea("S");
 							State.setState(handler.getGame().inWorldState.setArea(InWorldState.SArea));
 						}
+						
+						if (w.getType().equals("Door House 1")) {
+							checkInWorld = true;
+							InWorldState.caveArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
+							InWorldState.caveArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
+							
+							House1Interior.isinHouse = true;
+							setWidthAndHeight(InAreaWidthFrontAndBack, InAreaHeightFront);
+							handler.setXInWorldDisplacement(House1Interior.playerXSpawn);
+							handler.setYInWorldDisplacement(House1Interior.playerYSpawn);
+							GameSetUp.LOADING = true;
+							handler.setArea("House 1");
+
+							handler.getGame().getMusicHandler().set_changeMusic("res/music/Cave.mp3");
+							handler.getGame().getMusicHandler().play();
+							handler.getGame().getMusicHandler().setVolume(0.4);
+
+							State.setState(handler.getGame().inWorldState.setArea(InWorldState.insideHouse1));
+						}
+						
+						if (w.getType().equals("Door Village")) {
+							checkInWorld = true;
+							InWorldState.caveArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
+							InWorldState.caveArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
+							
+							Village.isinVillage = true;
+							setWidthAndHeight(InAreaWidthFrontAndBack, InAreaHeightFront);
+							handler.setXInWorldDisplacement(Village.playerXSpawn);
+							handler.setYInWorldDisplacement(Village.playerYSpawn);
+							GameSetUp.LOADING = true;
+							handler.setArea("Village");
+
+							handler.getGame().getMusicHandler().set_changeMusic("res/music/Cave.mp3");
+							handler.getGame().getMusicHandler().play();
+							handler.getGame().getMusicHandler().setVolume(0.4);
+
+							State.setState(handler.getGame().inWorldState.setArea(InWorldState.village));
+						}
 					}
+					
+					
 
 				}
 			}

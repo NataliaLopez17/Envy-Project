@@ -25,5 +25,20 @@
 			<type>1</type>
 			<location>C:/Users/NATALIA E/Desktop/Envy/staticEntity.png</location>
 		</link>
+		<link>
+			<name>res/Worlds/inside house 1.png</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Desktop/Envy/inside house 1.png</location>
+		</link>
+		<link>
+			<name>res/Worlds/inside house 2.png</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Desktop/Envy/inside house 2.png</location>
+		</link>
+		<link>
+			<name>res/Worlds/village2.png</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Desktop/Envy/village2.png</location>
+		</link>
 	</linkedResources>
 </projectDescription>

@@ -95,6 +95,14 @@ public class Images {
 
 	public static BufferedImage[] SItem;
 
+	public static BufferedImage house1;
+	public static BufferedImage house2;
+	public static Image ScaledHouse1;
+	public static Image ScaledHouse2;
+	
+	public static BufferedImage village;
+	public static Image ScaledVillage;
+	
 	public static BufferedImage CaveMap;
 	public static BufferedImage Loading;
 	public static Image ScaledCave;
@@ -172,7 +180,10 @@ public class Images {
 			projectTitle = ImageIO.read(getClass().getResourceAsStream("/Buttons/ProjectWord.png"));
 			ghost = ImageIO.read(getClass().getResourceAsStream("/Sheets/ghost.png"));
 
-
+			house1 = ImageIO.read(getClass().getResourceAsStream("/Worlds/inside house 1.png"));
+			house2 = ImageIO.read(getClass().getResourceAsStream("/Worlds/inside house 2.png"));
+			village = ImageIO.read(getClass().getResourceAsStream("/Worlds/village2.png"));
+			
 			CaveMap = ImageIO.read(getClass().getResourceAsStream("/Worlds/CaveMap.png"));
 			tree = ImageIO.read(getClass().getResourceAsStream("/Sheets/Tree.png"));
 			title = ImageIO.read(getClass().getResourceAsStream("/Sheets/menuImage.png"));
@@ -760,6 +771,9 @@ public class Images {
 		
 		ScaledCave = Images.CaveMap.getScaledInstance(3680, 4000, Image.SCALE_SMOOTH); // 368x400 pixel image
 
+		ScaledVillage = Images.village.getScaledInstance(3680, 4000, Image.SCALE_SMOOTH);
+		ScaledHouse1 = Images.house1.getScaledInstance(3680, 4000, Image.SCALE_SMOOTH);
+		ScaledHouse2 = Images.house2.getScaledInstance(3680, 4000, Image.SCALE_SMOOTH);
 	}
 
 	

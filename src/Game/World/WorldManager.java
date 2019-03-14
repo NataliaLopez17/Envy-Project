@@ -1,6 +1,7 @@
 package Game.World;
 
 import Game.Entities.EntityManager;
+import Game.Entities.Dynamics.Lucina;
 import Game.Entities.Statics.Ahri;
 import Game.Entities.Statics.SmokeHouse;
 import Game.Entities.Statics.Tree;
@@ -23,6 +24,8 @@ public class WorldManager {
 	private int xPos;
 	private int yPos;
 	String alphabet1 = " abcdefghijklmnopqrstuvwxyzabcd";
+	
+	Lucina lucina;
 
 
 
@@ -40,6 +43,8 @@ public class WorldManager {
 		this.entityManager.AddEntity(new Tree(handler, 600, 600));
 		this.entityManager.AddEntity(new SmokeHouse(handler, 1153, 335));
 		this.entityManager.AddEntity(new Ahri(handler, 1700, 20));
+		
+		//this.entityManager.AddEntity(new Lucina(handler, xPos - 20, yPos));
 
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,500, 800,"MapState","Jovan","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,1400, 600,"MapState","Common Rat","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
@@ -148,20 +153,17 @@ public class WorldManager {
 		//Trees
 		worldWalls.add(new Walls(handler, 590, 600, 100, 100, "Wall"));
 		
-		//house 1
-		worldWalls.add(new Walls(handler, 1080, 550, 100, 115, "Wall"));
 		//house 1 door
 		worldWalls.add(new Walls(handler, 1120, 650, 30, 20, "Door House 1"));
 		
-		//house 2
-		worldWalls.add(new Walls(handler, 1100, 450, 70, 112, "Wall"));
-		//house 3
-		worldWalls.add(new Walls(handler, 1170, 450, 120, 125, "Wall"));
+		//houses boundaries
+		worldWalls.add(new Walls(handler, 1050, 450, 250, 250, "Wall"));
 		
-		//house 4
-		worldWalls.add(new Walls(handler, 1200, 550, 80, 100, "Wall"));
-		//house 4 door
-		worldWalls.add(new Walls(handler, 1220, 620, 25, 35, "Door House 2"));
+		//village doors
+		worldWalls.add(new Walls(handler, 1150, 450, 50, 10, "Door Village")); //Top
+		worldWalls.add(new Walls(handler, 1300, 550, 10, 50, "Door Village")); //Right
+		worldWalls.add(new Walls(handler, 1150, 700, 50, 10, "Door Village")); //Down
+		worldWalls.add(new Walls(handler, 1040, 550, 10, 50, "Door Village")); //Left
 	}
 
 	public void collidedWithWall() {
