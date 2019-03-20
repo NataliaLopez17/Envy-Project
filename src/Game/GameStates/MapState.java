@@ -8,7 +8,6 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 import Game.Entities.EntityManager;
-import Game.Entities.Dynamics.Lucina;
 import Game.Entities.Dynamics.Player;
 import Game.World.WorldManager;
 
@@ -19,7 +18,6 @@ public class MapState extends State {
 	WorldManager worldManager;
 	EntityManager entityManager;
 	Player player;
-	//Lucina lucina;
 
     //changes the initial spawn of the player
 	int initialXMapDisplacement=1450;
@@ -42,10 +40,8 @@ public class MapState extends State {
 		this.handler.setYDisplacement(yDisplacement);
 
 		player = new Player(handler, (int) handler.getWidth() / 2 - 5, (int) handler.getHeight() / 2);
-		//lucina = new Lucina(handler, (int) handler.getWidth() / 2 - 10, (int) handler.getHeight() / 2);
 		
 		entityManager = new EntityManager(handler, player);
-		//entityManager = new EntityManager(handler, lucina);
 		
 		worldManager = new WorldManager(handler, entityManager);
 		this.handler.setWorldManager(worldManager);

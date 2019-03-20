@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import Game.Entities.Dynamics.BaseHostileEntity;
-import Game.Entities.Dynamics.Lucina;
+import Game.Entities.Dynamics.Palutena;
 import Game.Entities.Dynamics.Player;
 import Game.Entities.Statics.BaseStaticEntity;
 import Main.GameSetUp;
@@ -15,7 +15,6 @@ public class EntityManager {
 	protected Handler handler;
 	protected Handler handler2;
 	protected Player player;
-	protected Lucina lucina;
 	
 	ArrayList<BaseEntity> entities;
 	
@@ -25,15 +24,6 @@ public class EntityManager {
 		
 		entities = new ArrayList<>();
 	}
-	
-	///**
-	public EntityManager(Handler handler2, Lucina lucina) {
-		this.handler2 = handler2;
-		this.lucina = lucina;
-		
-		entities = new ArrayList<>();
-	}
-	//**/
 
 	public void tick() {
 		
@@ -51,9 +41,7 @@ public class EntityManager {
 			}
 		}
 		
-		player.tick();
-		//lucina.tick();
-		
+		player.tick();	
 	}
 	
 	
@@ -75,9 +63,7 @@ public class EntityManager {
 
 	public void render(Graphics g){
 		
-		player.render(g);
-		//lucina.render(g);
-		
+		player.render(g);		
 		for (BaseEntity e : entities) {
 			if(e instanceof BaseHostileEntity) {
 				if(!((BaseHostileEntity) e).isDead()) e.render(g);
@@ -101,9 +87,5 @@ public class EntityManager {
 
 	public Player getPlayer() {
 		return player;
-	}
-	
-	public Lucina getLucina() {
-		return lucina;
 	}
 }

@@ -1,5 +1,7 @@
 package Game.Entities.Dynamics;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -64,11 +66,9 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		checkInWorld = false;
 
 	}
-
+	
 	@Override
 	public void tick() {
-
-
 		if (!GameSetUp.LOADING) {
 			levelUP();
 
@@ -103,7 +103,21 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	@Override
 	public void render(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
-
+		
+		
+		g.setColor(Color.BLACK);
+		g.setFont(new Font("Courier New", Font.BOLD, 16));
+		
+		g.drawString("Village", 30, 40);
+		g.drawString("x = " + handler.getXInWorldDisplacement(), 30, 60);
+		g.drawString("y = " + handler.getYInWorldDisplacement(), 30, 80);
+		
+		g.drawString("Map", 1250, 40);
+		g.drawString("x = " + handler.getXDisplacement(), 1250, 60);
+		g.drawString("y = " + handler.getYDisplacement(), 1250, 80);
+		
+		
+		
 		g.drawImage(
 				getCurrentAnimationFrame(animDown, animUp, animLeft, animRight, Images.player_front, Images.player_back,
 						Images.player_left, Images.player_right),
@@ -319,6 +333,42 @@ public class Player extends BaseDynamicEntity implements Fighter {
 					}
 				}
 			}
+			
+			if (Village.isinVillage) {
+				for (InWorldWalls iw : Village.villageWalls) {
+					if (nextArea.intersects(iw)) {
+						if (iw.getType().equals("Wall"))
+							PushPlayerBack();
+						else {
+
+							if (iw.getType().equals("Door Exit 1")) {
+
+								handler.setXDisplacement(InWorldState.village.oldPlayerXCoord); 
+								handler.setYDisplacement(InWorldState.village.oldPlayerYCoord); 
+
+							} else if (iw.getType().equals("Door Exit 2")) {
+
+								handler.setXDisplacement(InWorldState.village.oldPlayerXCoord);
+								handler.setYDisplacement(InWorldState.village.oldPlayerYCoord);
+							}
+
+							GameSetUp.LOADING = true;
+							handler.setArea("None");
+
+							handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
+							handler.getGame().getMusicHandler().play();
+							handler.getGame().getMusicHandler().setVolume(0.2);
+
+							State.setState(handler.getGame().mapState);
+							Village.isinVillage = false;
+							checkInWorld = false;
+							System.out.println("Villagee");
+							setWidthAndHeight(InMapWidthFrontAndBack, InMapHeightFront);
+						}
+					}
+				}
+			}
+
 
 			else if (Player.isinArea) {
 
@@ -456,7 +506,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 	String Class = "none", skill = "Freeze";
 	String[] buffs = {}, debuffs = {};
-
+	
 	@Override
 	public double getMaxHealth() {
 		return maxHealth;

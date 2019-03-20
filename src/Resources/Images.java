@@ -49,11 +49,7 @@ public class Images {
 	public static BufferedImage[] player_back;
 	public static BufferedImage player_attack;
 	
-	public static SpriteSheet lucina;
-	public static BufferedImage[] lucina_front;
-	public static BufferedImage[] lucina_left;
-	public static BufferedImage[] lucina_right;
-	public static BufferedImage[] lucina_back;
+	public static BufferedImage palutena;
 	
 
 	public static BufferedImage[] PEnemyIdle;
@@ -141,12 +137,7 @@ public class Images {
 		player_right = new BufferedImage[4];
 		player_left = new BufferedImage[4];
 		player_back = new BufferedImage[4];
-		
-		lucina_front = new BufferedImage[4];
-		lucina_right = new BufferedImage[4];
-		lucina_left = new BufferedImage[4];
-		lucina_back = new BufferedImage[4];
-
+	
 		PEnemyIdle = new BufferedImage[7];
 		WEnemyIdle = new BufferedImage[3];
 
@@ -197,7 +188,9 @@ public class Images {
 			
 			
 			ahri = ImageIO.read(getClass().getResourceAsStream("/Sheets/staticEntity.png"));
-
+			palutena = ImageIO.read(getClass().getResourceAsStream("/Sheets/dynamicEntity2.png"));
+			
+			
 			Pause = ImageIO.read(getClass().getResourceAsStream("/Buttons/Pause.png"));
 			Resume[0] = ImageIO.read(getClass().getResourceAsStream("/Buttons/ResumeButton3.png"));
 			Resume[1] = ImageIO.read(getClass().getResourceAsStream("/Buttons/ResumeButton1.png"));
@@ -255,7 +248,6 @@ public class Images {
 
 
 			playerSheet =  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/player.png")));
-			lucina = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/dynamicEntity.png")));
 			
 			player_front[0] = playerSheet.crop(1, 6, 15, 27);
 			player_front[1] = playerSheet.crop(17, 7, 15, 27);
@@ -276,26 +268,6 @@ public class Images {
 			player_back[1] = playerSheet.crop(16, 69, 15, 23);
 			player_back[2] = playerSheet.crop(32, 69, 15, 23);
 			player_back[3] = playerSheet.crop(48, 69, 15, 23);
-			
-			lucina_right[0] = playerSheet.crop(0, 47, 15, 27);
-			lucina_right[1] = playerSheet.crop(31, 47, 15, 27);
-			lucina_right[2] = playerSheet.crop(63, 46, 15, 27);
-			lucina_right[3] = playerSheet.crop(96, 47, 15, 27);
-			
-			lucina_front[0] = playerSheet.crop(0, 83, 13, 22);
-			lucina_front[1] = playerSheet.crop(32, 83, 13, 22);
-			lucina_front[2] = playerSheet.crop(64, 83, 13, 22);
-			lucina_front[3] = playerSheet.crop(95, 83, 13, 22);
-			
-			lucina_left[0] = playerSheet.crop(0, 154, 13, 22);
-			lucina_left[1] = playerSheet.crop(31, 154, 13, 22);
-			lucina_left[2] = playerSheet.crop(64, 154, 13, 22);
-			lucina_left[3] = playerSheet.crop(95, 154, 13, 22);
-			
-			lucina_back[0] = playerSheet.crop(0, 226, 13, 22);
-			lucina_back[1] = playerSheet.crop(31, 226, 13, 22);
-			lucina_back[2] = playerSheet.crop(64, 226, 13, 22);
-			lucina_back[3] = playerSheet.crop(95, 226, 13, 22);
 
 			player_attack = ImageIO.read(getClass().getResourceAsStream("/Sheets/playerAttack.png"));
 
