@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.Rectangle;
 
 import Game.Entities.Statics.Ahri;
@@ -28,9 +29,11 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 	private Rectangle player;
 	private KeyManager keyManager;
-	private boolean canMove;
+	public static boolean canMove;
 	public static boolean checkInWorld;
 	public static boolean hp = false;
+	public static boolean switch1 = false;
+	
 
 	public static final int InMapWidthFrontAndBack = 15 * 3, InMapHeightFront = 27 * 3, InMapHeightBack = 23 * 3,
 			InMapWidthSideways = 13 * 3, InMapHeightSideways = 22 * 3, 
@@ -69,6 +72,8 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	
 	@Override
 	public void tick() {
+		//System.out.println(switch1);
+		//System.out.println(xPosition + " " + yPosition);
 		if (!GameSetUp.LOADING) {
 			levelUP();
 
@@ -96,9 +101,21 @@ public class Player extends BaseDynamicEntity implements Fighter {
 			}
 
 		}
-		
+		//if (Math.abs(handler.getYDisplacement()) >= 340 && Math.abs(handler.getYDisplacement()) <= 380) {
+	//		if (Math.abs(handler.getXDisplacement()) >= 628 && Math.abs(handler.getXDisplacement()) <= 756) {
+		//		switch1 = true;
+		//	}
+		//	else {
+		//		switch1 = false;
+		//	}
+			
+	//	}
+		//628
+		//756
+		//if (handler.getEntityManager().getPlayer().getCollision().contains(new Point((int)Ahri.collision.getCenterX(), (int)Ahri.collision.getMinY()))) {
+		//	System.out.println("true");
+		//}
 	}
-
 
 	@Override
 	public void render(Graphics g) {
@@ -107,6 +124,10 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Courier New", Font.BOLD, 16));
+		
+		//if (switch1 = true) {
+		//	g.drawString("E", (int)Ahri.collision.getX(),(int) Ahri.collision.getY());
+		//}
 
 		
 		g.drawString("Village", 30, 40);
@@ -116,7 +137,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		g.drawString("Map", 1250, 40);
 		g.drawString("x = " + Math.abs(handler.getXDisplacement()), 1250, 60);
 		g.drawString("y = " + Math.abs(handler.getYDisplacement()), 1250, 80);
-		
+		g.drawString("weeb", handler.getXDisplacement(), handler.getYDisplacement());
 		
 		
 		g.drawImage(
@@ -125,6 +146,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 				(int) xPosition, (int) yPosition, currentWidth, currentHeight, null);
 
 		player = new Rectangle((int) xPosition, (int) yPosition+(currentHeight/2)+5, currentWidth-3, currentHeight/2);
+		
 
 		if (GameSetUp.DEBUGMODE) {
 			g2.draw(nextArea);

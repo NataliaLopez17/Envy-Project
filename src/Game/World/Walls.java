@@ -12,6 +12,7 @@ import java.awt.*;
  *
  */
 public class Walls extends Rectangle {
+	//idk
 
     protected Handler handler;
     protected int originalX,originalY;
