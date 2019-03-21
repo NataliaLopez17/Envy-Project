@@ -120,6 +120,15 @@ public class Village extends BaseArea{
 		
 		villageWalls.add(new InWorldWalls(handler, 1100, 3800, 300, 200, "Door Exit 2")); //exit 2
 		
+		villageWalls.add(new InWorldWalls(handler, 1350, 800, 600, 550, "Wall")); //pond
+		
+		villageWalls.add(new InWorldWalls(handler, 2100, 200, imageWidth, 700, "Wall")); //log house
+		
+		villageWalls.add(new InWorldWalls(handler, 1000, 200, imageWidth, 500, "Wall")); //upper trees
+		
+		villageWalls.add(new InWorldWalls(handler, 3000, 1100, imageWidth, 400, "Wall")); //right corner houses
+		
+		villageWalls.add(new InWorldWalls(handler, 1950, 1050, 850, 300, "Wall")); //wall besides the pond
 	}
 
 	@Override

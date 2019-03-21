@@ -105,16 +105,17 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		Graphics2D g2 = (Graphics2D) g;
 		
 		
-		g.setColor(Color.BLACK);
+		g.setColor(Color.WHITE);
 		g.setFont(new Font("Courier New", Font.BOLD, 16));
+
 		
 		g.drawString("Village", 30, 40);
-		g.drawString("x = " + handler.getXInWorldDisplacement(), 30, 60);
-		g.drawString("y = " + handler.getYInWorldDisplacement(), 30, 80);
+		g.drawString("x = " + Math.abs(handler.getXInWorldDisplacement()), 30, 60);
+		g.drawString("y = " + Math.abs(handler.getYInWorldDisplacement()), 30, 80);
 		
 		g.drawString("Map", 1250, 40);
-		g.drawString("x = " + handler.getXDisplacement(), 1250, 60);
-		g.drawString("y = " + handler.getYDisplacement(), 1250, 80);
+		g.drawString("x = " + Math.abs(handler.getXDisplacement()), 1250, 60);
+		g.drawString("y = " + Math.abs(handler.getYDisplacement()), 1250, 80);
 		
 		
 		
