@@ -36,7 +36,7 @@ public class Palutena extends BaseStaticEntity{
 
 		g.drawImage(Images.palutena, (int)(handler.getXInWorldDisplacement() + xPosition),(int)( handler.getYInWorldDisplacement() + yPosition), width, height, null);
 		
-		collision = new Rectangle((int)(handler.getXInWorldDisplacement() + xPosition - 50),(int)( handler.getYInWorldDisplacement() + yPosition - 50), width + 30, height + 100);
+		//collision = new Rectangle((int)(handler.getXInWorldDisplacement() + xPosition - 50),(int)( handler.getYInWorldDisplacement() + yPosition - 50), width + 30, height + 100);
 		
 		if (collision.contains(new Point((int)handler.getEntityManager().getPlayer().getCollision().getX(), (int)handler.getEntityManager().getPlayer().getCollision().getY()-30))) {
 			g.setColor(Color.RED);

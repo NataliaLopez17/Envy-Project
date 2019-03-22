@@ -84,6 +84,9 @@ public class WorldManager {
 
 				if (w.getType().equals("Wall"))
 					g2.setColor(Color.black);
+				else if(w.getType().equals("Faux wall")) {
+					g2.setColor(Color.WHITE);
+				}
 				else
 					g2.setColor(Color.PINK);
 

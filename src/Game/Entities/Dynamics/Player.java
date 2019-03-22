@@ -33,7 +33,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	public static boolean checkInWorld;
 	public static boolean hp = false;
 	public static boolean switch1 = false;
-	
+
 
 	public static final int InMapWidthFrontAndBack = 15 * 3, InMapHeightFront = 27 * 3, InMapHeightBack = 23 * 3,
 			InMapWidthSideways = 13 * 3, InMapHeightSideways = 22 * 3, 
@@ -69,7 +69,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		checkInWorld = false;
 
 	}
-	
+
 	@Override
 	public void tick() {
 		//System.out.println(switch1);
@@ -102,14 +102,14 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 		}
 		//if (Math.abs(handler.getYDisplacement()) >= 340 && Math.abs(handler.getYDisplacement()) <= 380) {
-	//		if (Math.abs(handler.getXDisplacement()) >= 628 && Math.abs(handler.getXDisplacement()) <= 756) {
+		//		if (Math.abs(handler.getXDisplacement()) >= 628 && Math.abs(handler.getXDisplacement()) <= 756) {
 		//		switch1 = true;
 		//	}
 		//	else {
 		//		switch1 = false;
 		//	}
-			
-	//	}
+
+		//	}
 		//628
 		//756
 		//if (handler.getEntityManager().getPlayer().getCollision().contains(new Point((int)Ahri.collision.getCenterX(), (int)Ahri.collision.getMinY()))) {
@@ -120,33 +120,33 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	@Override
 	public void render(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
-		
-		
+
+
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Courier New", Font.BOLD, 16));
-		
+
 		//if (switch1 = true) {
 		//	g.drawString("E", (int)Ahri.collision.getX(),(int) Ahri.collision.getY());
 		//}
 
-		
+
 		g.drawString("Village", 30, 40);
 		g.drawString("x = " + Math.abs(handler.getXInWorldDisplacement()), 30, 60);
 		g.drawString("y = " + Math.abs(handler.getYInWorldDisplacement()), 30, 80);
-		
+
 		g.drawString("Map", 1250, 40);
 		g.drawString("x = " + Math.abs(handler.getXDisplacement()), 1250, 60);
 		g.drawString("y = " + Math.abs(handler.getYDisplacement()), 1250, 80);
 		g.drawString("weeb", handler.getXDisplacement(), handler.getYDisplacement());
-		
-		
+
+
 		g.drawImage(
 				getCurrentAnimationFrame(animDown, animUp, animLeft, animRight, Images.player_front, Images.player_back,
 						Images.player_left, Images.player_right),
 				(int) xPosition, (int) yPosition, currentWidth, currentHeight, null);
 
 		player = new Rectangle((int) xPosition, (int) yPosition+(currentHeight/2)+5, currentWidth-3, currentHeight/2);
-		
+
 
 		if (GameSetUp.DEBUGMODE) {
 			g2.draw(nextArea);
@@ -274,12 +274,12 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							handler.setArea("S");
 							State.setState(handler.getGame().inWorldState.setArea(InWorldState.SArea));
 						}
-						
+
 						if (w.getType().equals("Door House 1")) {
 							checkInWorld = true;
 							InWorldState.caveArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
 							InWorldState.caveArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
-							
+
 							House1Interior.isinHouse = true;
 							setWidthAndHeight(InAreaWidthFrontAndBack, InAreaHeightFront);
 							handler.setXInWorldDisplacement(House1Interior.playerXSpawn);
@@ -293,12 +293,12 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 							State.setState(handler.getGame().inWorldState.setArea(InWorldState.insideHouse1));
 						}
-						
+
 						if (w.getType().equals("Door Village")) {
 							checkInWorld = true;
 							InWorldState.caveArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
 							InWorldState.caveArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
-							
+
 							Village.isinVillage = true;
 							setWidthAndHeight(InAreaWidthFrontAndBack, InAreaHeightFront);
 							handler.setXInWorldDisplacement(Village.playerXSpawn);
@@ -313,8 +313,8 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							State.setState(handler.getGame().inWorldState.setArea(InWorldState.village));
 						}
 					}
-					
-					
+
+
 
 				}
 			}
@@ -356,24 +356,28 @@ public class Player extends BaseDynamicEntity implements Fighter {
 					}
 				}
 			}
-			
+
 			if (Village.isinVillage) {
 				for (InWorldWalls iw : Village.villageWalls) {
 					if (nextArea.intersects(iw)) {
-						if (iw.getType().equals("Wall"))
+						if (iw.getType().equals("Wall")) {
 							PushPlayerBack();
+							System.out.println("x = " + Math.abs(handler.getXInWorldDisplacement())/2);
+							System.out.println("y = " + Math.abs(handler.getYInWorldDisplacement())/2);
+						}
 						else {
-
 							if (iw.getType().equals("Door Exit 1")) {
 
-								handler.setXDisplacement(InWorldState.village.oldPlayerXCoord); 
-								handler.setYDisplacement(InWorldState.village.oldPlayerYCoord); 
+								handler.setXDisplacement(InWorldState.village.oldPlayerXCoord - 30); 
+								handler.setYDisplacement(InWorldState.village.oldPlayerYCoord - 30); 
 
 							} else if (iw.getType().equals("Door Exit 2")) {
 
-								handler.setXDisplacement(InWorldState.village.oldPlayerXCoord);
-								handler.setYDisplacement(InWorldState.village.oldPlayerYCoord);
+								handler.setXDisplacement(InWorldState.village.oldPlayerXCoord - 30);
+								handler.setYDisplacement(InWorldState.village.oldPlayerYCoord - 30);
 							}
+
+
 
 							GameSetUp.LOADING = true;
 							handler.setArea("None");
@@ -468,15 +472,15 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		if (playerXPos < collidedXPos / 2) {
 			handler.setXDisplacement(handler.getXDisplacement() + 2);
 		} 
-		
+
 		else if (playerXPos > collidedXPos / 2) {
 			handler.setXDisplacement(handler.getXDisplacement() - 2);
 		}
-		
+
 		if (playerYPos < collidedYPos / 2) {
 			handler.setYDisplacement(handler.getYDisplacement() + 2);
 		}
-		
+
 		else if (playerYPos > collidedYPos / 2) {
 			handler.setYDisplacement(handler.getYDisplacement() - 2);
 		}
@@ -529,7 +533,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 	String Class = "none", skill = "Freeze";
 	String[] buffs = {}, debuffs = {};
-	
+
 	@Override
 	public double getMaxHealth() {
 		return maxHealth;

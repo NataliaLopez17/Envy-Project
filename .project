@@ -16,34 +16,29 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>res/Sheets/dynamicEntity.png</name>
-			<type>1</type>
-			<location>C:/Users/Giovanni/git/project-envy-exorcizamus-te/res/Sheets/dynamicEntity.png</location>
-		</link>
-		<link>
 			<name>res/Sheets/dynamicEntity2.png</name>
 			<type>1</type>
-			<location>C:/Users/Giovanni/git/project-envy-exorcizamus-te/res/Sheets/dynamicEntity2.png</location>
+			<location>C:/Users/NATALIA E/Documents/Envy/dynamicEntity2.png</location>
 		</link>
 		<link>
 			<name>res/Sheets/staticEntity.png</name>
 			<type>1</type>
-			<location>C:/Users/Giovanni/git/project-envy-exorcizamus-te/res/Sheets/staticEntity.png</location>
+			<location>C:/Users/NATALIA E/Documents/Envy/staticEntity.png</location>
 		</link>
 		<link>
 			<name>res/Worlds/inside house 1.png</name>
 			<type>1</type>
-			<location>C:/Users/Giovanni/git/project-envy-exorcizamus-te/res/Worlds/inside house 1.png</location>
+			<location>C:/Users/NATALIA E/Documents/Envy/inside house 1.png</location>
 		</link>
 		<link>
 			<name>res/Worlds/inside house 2.png</name>
 			<type>1</type>
-			<location>C:/Users/Giovanni/git/project-envy-exorcizamus-te/res/Worlds/inside house 2.png</location>
+			<location>C:/Users/NATALIA E/Documents/Envy/inside house 2.png</location>
 		</link>
 		<link>
 			<name>res/Worlds/village2.png</name>
 			<type>1</type>
-			<location>C:/Users/Giovanni/git/project-envy-exorcizamus-te/res/Worlds/village2.png</location>
+			<location>C:/Users/NATALIA E/Documents/Envy/village2.png</location>
 		</link>
 	</linkedResources>
 </projectDescription>

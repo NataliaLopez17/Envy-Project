@@ -76,6 +76,10 @@ public class Village extends BaseArea{
 
 				if (w.getType().equals("Wall"))
 					g2.setColor(Color.black);
+				
+				else if(w.getType().equals("Faux wall")) {
+					g2.setColor(Color.white);
+				}
 				else
 					g2.setColor(Color.PINK);
 
@@ -92,7 +96,7 @@ public class Village extends BaseArea{
 		villageWalls.add(new InWorldWalls(handler, 700, 4000, 500, 500, "Wall"));
 
 		villageWalls.add(new InWorldWalls(handler, 0, 0, 400, imageHeight, "Wall"));// Left Border
-		villageWalls.add(new InWorldWalls(handler, 0, imageHeight-900, imageWidth/3 -100, 900, "Wall"));					// Bottom LeftBorder (Left side relative to Entrance)
+		villageWalls.add(new InWorldWalls(handler, 0, imageHeight-900, imageWidth/3 -200, 900, "Wall"));					// Bottom LeftBorder (Left side relative to Entrance)
 		villageWalls.add(new InWorldWalls(handler, imageWidth/2-450, imageHeight-500, imageWidth, 700, "Wall"));	// Bottom RightBorder (Right side relative to Entrance)
 		villageWalls.add(new InWorldWalls(handler, 0, 50, imageWidth, 200, "Wall"));								//
 		villageWalls.add(new InWorldWalls(handler, imageWidth - 130, 0, 100, imageHeight, "Wall"));	
@@ -129,6 +133,8 @@ public class Village extends BaseArea{
 		villageWalls.add(new InWorldWalls(handler, 3000, 1100, imageWidth, 400, "Wall")); //right corner houses
 		
 		villageWalls.add(new InWorldWalls(handler, 1950, 1050, 850, 300, "Wall")); //wall besides the pond
+		
+		villageWalls.add(new InWorldWalls(handler, 1150, 850, 250, 250, "Wall")); //palutena
 	}
 
 	@Override
