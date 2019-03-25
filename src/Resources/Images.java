@@ -48,8 +48,11 @@ public class Images {
 	public static BufferedImage[] player_right;
 	public static BufferedImage[] player_back;
 	public static BufferedImage player_attack;
+
 	
 	public static BufferedImage palutena;
+	public static BufferedImage E;
+	public static BufferedImage mission;
 	
 
 	public static BufferedImage[] PEnemyIdle;
@@ -137,7 +140,7 @@ public class Images {
 		player_right = new BufferedImage[4];
 		player_left = new BufferedImage[4];
 		player_back = new BufferedImage[4];
-	
+		
 		PEnemyIdle = new BufferedImage[7];
 		WEnemyIdle = new BufferedImage[3];
 
@@ -189,6 +192,8 @@ public class Images {
 			
 			ahri = ImageIO.read(getClass().getResourceAsStream("/Sheets/staticEntity.png"));
 			palutena = ImageIO.read(getClass().getResourceAsStream("/Sheets/dynamicEntity2.png"));
+			E = ImageIO.read(getClass().getResourceAsStream("/Buttons/E.png"));
+			mission = ImageIO.read(getClass().getResourceAsStream("/Sheets/mission.png"));
 			
 			
 			Pause = ImageIO.read(getClass().getResourceAsStream("/Buttons/Pause.png"));

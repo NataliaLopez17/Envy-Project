@@ -21,6 +21,11 @@
 			<location>C:/Users/NATALIA E/Documents/Envy/dynamicEntity2.png</location>
 		</link>
 		<link>
+			<name>res/Sheets/mission.png</name>
+			<type>1</type>
+			<location>C:/Users/NATALIA E/Desktop/mission.png</location>
+		</link>
+		<link>
 			<name>res/Sheets/staticEntity.png</name>
 			<type>1</type>
 			<location>C:/Users/NATALIA E/Documents/Envy/staticEntity.png</location>

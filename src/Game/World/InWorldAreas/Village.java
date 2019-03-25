@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
@@ -20,6 +21,7 @@ public class Village extends BaseArea{
 	Rectangle exit;
 	Rectangle playerRect;
 	public static boolean isinVillage = false;
+	Palutena palutena;
 
 	private int imageWidth = 3680, imageHeight = 4000;
 	public final static int playerXSpawn = -380, playerYSpawn = -3180;
@@ -68,7 +70,13 @@ public class Village extends BaseArea{
 
 		g2.setColor(Color.black);
 		g2.fill(background);
-
+		
+		if(handler.getEntityManager().getPlayer().getCollision().contains(new Rectangle(1000,500))) {
+			g2.setColor(Color.RED);
+			//g.setFont(new Font("Courier New", Font.BOLD, 40));
+			//g.drawString("E",1150,900);
+		}
+		
 		g.drawImage(Images.ScaledVillage, handler.getXInWorldDisplacement(), handler.getYInWorldDisplacement(), null);
 
 		if (GameSetUp.DEBUGMODE) {
@@ -77,9 +85,6 @@ public class Village extends BaseArea{
 				if (w.getType().equals("Wall"))
 					g2.setColor(Color.black);
 				
-				else if(w.getType().equals("Faux wall")) {
-					g2.setColor(Color.white);
-				}
 				else
 					g2.setColor(Color.PINK);
 
@@ -134,7 +139,6 @@ public class Village extends BaseArea{
 		
 		villageWalls.add(new InWorldWalls(handler, 1950, 1050, 850, 300, "Wall")); //wall besides the pond
 		
-		villageWalls.add(new InWorldWalls(handler, 1150, 850, 250, 250, "Wall")); //palutena
 	}
 
 	@Override

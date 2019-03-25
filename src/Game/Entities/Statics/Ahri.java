@@ -14,7 +14,7 @@ import Resources.Images;
 
 public class Ahri extends BaseStaticEntity{
 
-	public static Rectangle collision;
+	public Rectangle collision;
 	int width, height;
 	
 	public Ahri(Handler handler, int xPosition, int yPosition) {
@@ -61,10 +61,6 @@ public class Ahri extends BaseStaticEntity{
 		return xPosition;
 	}
 	
-	//@Override
-	//public void tick() {
-	//
-//	}
 	
 
 }

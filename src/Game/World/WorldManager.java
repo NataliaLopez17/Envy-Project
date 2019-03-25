@@ -77,7 +77,7 @@ public class WorldManager {
 		g2.drawString(this.getString(), this.xPos,this.yPos);
 
 		if(GameSetUp.DEBUGMODE){
-
+			
 			g2.setColor(Color.BLACK);
 			g2.draw(rectangle);
 			for (Walls w: this.worldWalls) {

@@ -213,6 +213,30 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 	}
 
+	
+	void pushMe() {
+
+		canMove = false;
+		switch (facing) {
+		case "Down":
+			Move(false, 1);
+			break;
+		case "Up":
+			Move(false, -1);
+			break;
+		case "Right":
+			Move(true, 1);
+			break;
+		case "Left":
+			Move(true, -1);
+			break;
+		}
+	}
+	
+	
+	
+	
+	
 	private void PushPlayerBack() {
 
 		canMove = false;
@@ -449,7 +473,8 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		}
 
 	}
-
+	
+	
 	@Override
 	public Rectangle getCollision() {
 		return player;
