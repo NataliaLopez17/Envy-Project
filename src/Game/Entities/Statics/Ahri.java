@@ -8,6 +8,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 
 import Game.Entities.Dynamics.Player;
+import Game.World.WorldManager;
 import Main.GameSetUp;
 import Main.Handler;
 import Resources.Images;
@@ -16,7 +17,7 @@ public class Ahri extends BaseStaticEntity{
 
 	public Rectangle collision;
 	int width, height;
-	
+	public static boolean switch2 = false;
 	public Ahri(Handler handler, int xPosition, int yPosition) {
 		super(handler, xPosition, yPosition);
 		
@@ -32,8 +33,12 @@ public class Ahri extends BaseStaticEntity{
 	
 	@Override
 	public void render(Graphics g) {
-		//System.out.println(handler.getEntityManager().getPlayer().getCollision().getCenterX());
-		//System.out.println(handler.getEntityManager().getPlayer().getCollision().getMaxY());
+		if(collision.intersects(handler.getEntityManager().getPlayer().getCollision()) && WorldManager.enemyDefeated == false) {
+			switch2 = true;
+		}
+		else {
+			switch2 = false;
+		}
 		
 		
 		Graphics2D g2 = (Graphics2D) g;
@@ -42,7 +47,7 @@ public class Ahri extends BaseStaticEntity{
 		
 		g.drawImage(Images.ahri,  (int)(handler.getXDisplacement() + xPosition),(int)( handler.getYDisplacement() + yPosition), width, height, null);
 		
-		collision = new Rectangle((int)(handler.getXDisplacement() + xPosition - 30), (int)(handler.getYDisplacement() + yPosition + 50), width + 50, height);
+		//collision = new Rectangle((int)(handler.getXDisplacement() + xPosition - 30), (int)(handler.getYDisplacement() + yPosition + 50), width + 50, height);
 		
 
 		

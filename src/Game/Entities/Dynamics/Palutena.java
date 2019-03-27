@@ -9,6 +9,7 @@ import java.awt.Rectangle;
 
 import Game.Entities.Statics.Ahri;
 import Game.Entities.Statics.BaseStaticEntity;
+import Game.World.WorldManager;
 import Main.GameSetUp;
 import Main.Handler;
 import Resources.Images;
@@ -41,7 +42,14 @@ public class Palutena extends BaseStaticEntity{
 		
 		if(collision.intersects(handler.getEntityManager().getPlayer().getCollision())) {
 			handler.getEntityManager().getPlayer().pushMe();
-			g.drawImage(Images.E, (int) collision.getX(), (int) collision.getY() + 100, null);
+			if (WorldManager.enemyDefeated == false) {
+				g.drawImage(Images.E, (int) collision.getX(), (int) collision.getY() + 100, null);
+			}
+			else {
+				//put the image here breh
+				//g.drawImage(Images.E, (int) collision.getX(), (int) collision.getY() + 100, null);
+			}
+			
 			Player.switch1 = true;
 		}
 		else {

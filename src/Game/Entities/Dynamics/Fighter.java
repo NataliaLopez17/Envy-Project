@@ -8,6 +8,7 @@ public interface Fighter {
     //
 
     double getMaxHealth();
+    
     double getMaxMana();
 
     double getHealth();
@@ -15,7 +16,9 @@ public interface Fighter {
     void setHealth(double health);
 
     double getMana();
+    
     void setMana(double mana);
+    
     double getXp();
 
     void setXp(double xp);

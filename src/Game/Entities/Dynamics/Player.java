@@ -11,6 +11,7 @@ import Game.Entities.Statics.Ahri;
 import Game.GameStates.InWorldState;
 import Game.GameStates.State;
 import Game.World.Walls;
+import Game.World.WorldManager;
 import Game.World.InWorldAreas.CaveArea;
 import Game.World.InWorldAreas.House1Interior;
 import Game.World.InWorldAreas.InWorldWalls;
@@ -72,6 +73,11 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 	@Override
 	public void tick() {
+		System.out.println(this.xPosition + " X");
+		System.out.println(this.yPosition + " Y");
+		if (Ahri.switch2 = true) {
+			Player.canMove = false;
+		}
 		//System.out.println(switch1);
 		//System.out.println(xPosition + " " + yPosition);
 		if (!GameSetUp.LOADING) {
@@ -101,20 +107,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 			}
 
 		}
-		//if (Math.abs(handler.getYDisplacement()) >= 340 && Math.abs(handler.getYDisplacement()) <= 380) {
-		//		if (Math.abs(handler.getXDisplacement()) >= 628 && Math.abs(handler.getXDisplacement()) <= 756) {
-		//		switch1 = true;
-		//	}
-		//	else {
-		//		switch1 = false;
-		//	}
 
-		//	}
-		//628
-		//756
-		//if (handler.getEntityManager().getPlayer().getCollision().contains(new Point((int)Ahri.collision.getCenterX(), (int)Ahri.collision.getMinY()))) {
-		//	System.out.println("true");
-		//}
 	}
 
 	@Override
@@ -124,11 +117,6 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Courier New", Font.BOLD, 16));
-
-		//if (switch1 = true) {
-		//	g.drawString("E", (int)Ahri.collision.getX(),(int) Ahri.collision.getY());
-		//}
-
 
 		g.drawString("Village", 30, 40);
 		g.drawString("x = " + Math.abs(handler.getXInWorldDisplacement()), 30, 60);
@@ -214,7 +202,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	}
 
 	
-	void pushMe() {
+	public void pushMe() {
 
 		canMove = false;
 		switch (facing) {
@@ -541,7 +529,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	// GETTERS AND SETTERS FOR FIGHT STATS
 
 	public static double health = 200;
-	public static double mana = 50;
+	public static double mana = 100;
 	double xp = 0;
 	double lvl = 1;
 	double defense = 16;

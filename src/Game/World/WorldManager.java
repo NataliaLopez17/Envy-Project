@@ -24,6 +24,7 @@ public class WorldManager {
 	private int xPos;
 	private int yPos;
 	String alphabet1 = " abcdefghijklmnopqrstuvwxyzabcd";
+	public static boolean enemyDefeated = false;
 	
 	Palutena palutena;
 	Ahri ahri;
@@ -55,6 +56,13 @@ public class WorldManager {
 	}
 
 	public void tick() {
+		if (enemyDefeated == true) {
+			//enable entrance
+			worldWalls.remove(new Walls(handler, 1662, -60, 50, 150, "Wall"));
+			worldWalls.add(new Walls(handler, 1662, 55, 50, 50, "Door Cave"));
+			worldWalls.add(new Walls(handler, (int) circle.getXOffset(),(int) 
+					circle.getYOffset(), 20, 20, "Door S"));
+		}
 
 		for (Walls w: this.worldWalls) {
 			w.tick();
@@ -134,16 +142,14 @@ public class WorldManager {
 		worldWalls.add(new Walls(handler, 1710, -150, 250, 250, "Wall"));
 		worldWalls.add(new Walls(handler, 1600, 0, 60, 100, "Wall"));
 		worldWalls.add(new Walls(handler, 1662, -60, 50, 80, "Wall"));
+		worldWalls.add(new Walls(handler, 1662, -60, 50, 150, "Wall"));
 		worldWalls.add(new Walls(handler, 1950, -270, 200, 50, "Wall"));
 		worldWalls.add(new Walls(handler, 1950, -300, 100, 50, "Wall"));
 
 		worldWalls.add(new Walls(handler, 1980, -350, 50, 50, "Wall"));
 		worldWalls.add(new Walls(handler, 1950, -250, 200, 100, "Wall"));	
 		worldWalls.add(new Walls(handler, 1960, -150, 120, 100, "Wall"));
-
-		worldWalls.add(new Walls(handler, 1662, 55, 50, 50, "Door Cave"));
-		worldWalls.add(new Walls(handler, (int) circle.getXOffset(),(int) 
-				circle.getYOffset(), 20, 20, "Door S"));	
+	
 
 		///Left Mountains
 		worldWalls.add(new Walls(handler, 700, 180, 140, 200, "Wall"));

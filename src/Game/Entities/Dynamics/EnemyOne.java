@@ -31,6 +31,8 @@ public class EnemyOne extends BaseHostileEntity implements Fighter{
 
     @Override
     public void tick() {
+    	if (this.health < 99) System.out.println("khe");
+    	if (Player.isinArea) System.out.println("weeb");
 
         if(!Player.isinArea)super.tick();
 
