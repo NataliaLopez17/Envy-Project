@@ -33,6 +33,7 @@ public class Ahri extends BaseStaticEntity{
 	
 	@Override
 	public void render(Graphics g) {
+		
 		if(collision.intersects(handler.getEntityManager().getPlayer().getCollision()) && WorldManager.enemyDefeated == false) {
 			switch2 = true;
 		}
@@ -46,10 +47,6 @@ public class Ahri extends BaseStaticEntity{
 		g.setFont(new Font("Courier New", Font.BOLD, 32));
 		
 		g.drawImage(Images.ahri,  (int)(handler.getXDisplacement() + xPosition),(int)( handler.getYDisplacement() + yPosition), width, height, null);
-		
-		//collision = new Rectangle((int)(handler.getXDisplacement() + xPosition - 30), (int)(handler.getYDisplacement() + yPosition + 50), width + 50, height);
-		
-
 		
 		if (GameSetUp.DEBUGMODE) {
 			g2.draw(collision);

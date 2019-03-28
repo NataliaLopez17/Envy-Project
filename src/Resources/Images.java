@@ -55,6 +55,8 @@ public class Images {
 	public static BufferedImage mission;
 	public static BufferedImage[] Skill2;
 	public static BufferedImage[] Skill3;
+	public static BufferedImage missionCompletion;
+	public static BufferedImage reward;
 	
 
 	public static BufferedImage[] PEnemyIdle;
@@ -200,6 +202,8 @@ public class Images {
 			E = ImageIO.read(getClass().getResourceAsStream("/Buttons/E.png"));
 			
 			mission = ImageIO.read(getClass().getResourceAsStream("/Sheets/mission.png"));
+			missionCompletion = ImageIO.read(getClass().getResourceAsStream("/Sheets/missionCompletion.png"));
+			reward = ImageIO.read(getClass().getResourceAsStream("/Sheets/reward.png"));
 			
 			
 			Pause = ImageIO.read(getClass().getResourceAsStream("/Buttons/Pause.png"));

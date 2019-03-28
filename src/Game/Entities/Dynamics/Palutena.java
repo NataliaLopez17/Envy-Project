@@ -37,34 +37,38 @@ public class Palutena extends BaseStaticEntity{
 		Graphics2D g2 = (Graphics2D) g;
 
 		g.drawImage(Images.palutena, (int)(handler.getXInWorldDisplacement() + xPosition),(int)( handler.getYInWorldDisplacement() + yPosition), width, height, null);
-		
+
 		collision = new Rectangle((int)(handler.getXInWorldDisplacement() + xPosition - 50),(int)( handler.getYInWorldDisplacement() + yPosition - 50), width + 30, height + 200);
-		
+
 		if(collision.intersects(handler.getEntityManager().getPlayer().getCollision())) {
 			handler.getEntityManager().getPlayer().pushMe();
 			if (WorldManager.enemyDefeated == false) {
+				
 				g.drawImage(Images.E, (int) collision.getX(), (int) collision.getY() + 100, null);
+				
+				if(handler.getKeyManager().attbut) {
+					g.drawImage(Images.mission, (int)collision.getX() + 200, (int)collision.getY(), null);
+					g.drawImage(Images.reward, (int)collision.getX() + 200, (int)collision.getY()+200, null);
+				}
 			}
 			else {
-				//put the image here breh
-				//g.drawImage(Images.E, (int) collision.getX(), (int) collision.getY() + 100, null);
+				g.drawImage(Images.E, (int) collision.getX(), (int) collision.getY() + 100, null);
+				if(handler.getKeyManager().attbut) {
+					g.drawImage(Images.missionCompletion, (int) collision.getX() + 200, (int) collision.getY() + 100, null);
+				}
+
 			}
-			
+
 			Player.switch1 = true;
 		}
 		else {
 			Player.switch1 = false;
 		}
-		
-		if(handler.getKeyManager().attbut) {
-			g.drawImage(Images.mission, (int)collision.getX() + 200, (int)collision.getY(), null);
-		}
-			
-		
+
 		if (GameSetUp.DEBUGMODE) {
 			g2.draw(collision);
 		}
-		
+
 	}
 
 	@Override

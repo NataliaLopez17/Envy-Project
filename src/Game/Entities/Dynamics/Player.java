@@ -78,8 +78,6 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		if (Ahri.switch2 = true) {
 			Player.canMove = false;
 		}
-		//System.out.println(switch1);
-		//System.out.println(xPosition + " " + yPosition);
 		if (!GameSetUp.LOADING) {
 			levelUP();
 
@@ -114,18 +112,6 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	public void render(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 
-
-		g.setColor(Color.WHITE);
-		g.setFont(new Font("Courier New", Font.BOLD, 16));
-
-		g.drawString("Village", 30, 40);
-		g.drawString("x = " + Math.abs(handler.getXInWorldDisplacement()), 30, 60);
-		g.drawString("y = " + Math.abs(handler.getYInWorldDisplacement()), 30, 80);
-
-		g.drawString("Map", 1250, 40);
-		g.drawString("x = " + Math.abs(handler.getXDisplacement()), 1250, 60);
-		g.drawString("y = " + Math.abs(handler.getYDisplacement()), 1250, 80);
-		g.drawString("weeb", handler.getXDisplacement(), handler.getYDisplacement());
 
 
 		g.drawImage(

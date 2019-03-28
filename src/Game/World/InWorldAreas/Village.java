@@ -73,8 +73,6 @@ public class Village extends BaseArea{
 		
 		if(handler.getEntityManager().getPlayer().getCollision().contains(new Rectangle(1000,500))) {
 			g2.setColor(Color.RED);
-			//g.setFont(new Font("Courier New", Font.BOLD, 40));
-			//g.drawString("E",1150,900);
 		}
 		
 		g.drawImage(Images.ScaledVillage, handler.getXInWorldDisplacement(), handler.getYInWorldDisplacement(), null);
