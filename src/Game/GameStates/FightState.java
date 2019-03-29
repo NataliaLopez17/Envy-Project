@@ -130,7 +130,8 @@ public class FightState extends InWorldState{
 
 		if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_H)) {
 			Player.health = 200;
-		}
+			Player.mana = 100;	
+			}
 
 		if(turn>numOfEnemies){
 			turn=0;
